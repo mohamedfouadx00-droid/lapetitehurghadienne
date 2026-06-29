@@ -586,6 +586,141 @@
       padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.15);
     }
 
+    /* ─── CHECKLIST ─── */
+    #checklist { background: var(--sand); }
+    .checklist-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6rem; margin-top: 2.5rem; }
+    .check-cat {
+      background: #fff; border-radius: 20px; padding: 1.8rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .check-cat:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
+    .check-cat-icon { font-size: 2.2rem; margin-bottom: .6rem; }
+    .check-cat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--deep-ocean);
+      margin-bottom: 1rem; padding-bottom: .6rem;
+      border-bottom: 2px solid var(--gold);
+    }
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .87rem; color: var(--text-muted);
+      line-height: 1.55; margin-bottom: .5rem;
+    }
+    .check-list li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+    .check-tip {
+      margin-top: .9rem; padding: .7rem .9rem;
+      background: rgba(201,168,76,.1); border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0; font-size: .82rem; color: var(--charcoal);
+      line-height: 1.5;
+    }
+    .checklist-banner {
+      margin-top: 3rem; background: linear-gradient(135deg, var(--deep-ocean), var(--mid-ocean));
+      border-radius: 20px; padding: 2rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .checklist-banner-text { color: #fff; }
+    .checklist-banner-text h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem;
+      margin-bottom: .4rem; color: var(--gold-light);
+    }
+    .checklist-banner-text p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+
+    /* ─── EXCURSIONS / DESTINATIONS ─── */
+    #excursions { background: var(--cream); }
+    .dest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6rem; margin-top: 2.5rem; }
+    .dest-card {
+      background: #fff; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      transition: transform .3s, box-shadow .3s;
+      display: flex; flex-direction: column;
+    }
+    .dest-card:hover { transform: translateY(-6px); box-shadow: 0 14px 44px rgba(0,0,0,.14); }
+    .dest-header { padding: 1.6rem 1.6rem 1rem; position: relative; }
+    .dest-distance {
+      position: absolute; top: 1rem; right: 1rem;
+      background: rgba(201,168,76,.15); color: var(--gold);
+      font-size: .7rem; font-weight: 700; letter-spacing: .06em;
+      padding: .25rem .7rem; border-radius: 20px; text-transform: uppercase;
+    }
+    .dest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--deep-ocean); margin-bottom: .2rem;
+    }
+    .dest-tagline { font-size: .82rem; color: var(--coral); font-weight: 600; margin-bottom: .6rem; }
+    .dest-body { padding: 0 1.6rem 1.6rem; flex: 1; }
+    .dest-section-title {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-muted); margin: .8rem 0 .4rem;
+    }
+    .dest-items { list-style: none; }
+    .dest-items li {
+      font-size: .85rem; color: var(--text-muted); line-height: 1.5;
+      margin-bottom: .3rem; padding-left: 1.1rem; position: relative;
+    }
+    .dest-items li::before { content: '◆'; color: var(--gold); font-size: .55rem; position: absolute; left: 0; top: .38rem; }
+    .dest-activities { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+    .dest-act-tag {
+      background: rgba(11,37,69,.07); color: var(--deep-ocean);
+      font-size: .75rem; padding: .2rem .6rem; border-radius: 20px; font-weight: 500;
+    }
+    .dest-footer {
+      padding: .9rem 1.6rem;
+      background: rgba(11,37,69,.04); border-top: 1px solid rgba(0,0,0,.05);
+      font-size: .82rem; color: var(--text-muted); line-height: 1.5;
+    }
+    .dest-footer strong { color: var(--coral); }
+
+    /* ─── SOLIDAIRE ─── */
+    #solidaire { background: linear-gradient(160deg, #f5f0e8 0%, #fff8f0 100%); }
+    .solidaire-wrap {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center;
+    }
+    .solidaire-left { text-align: center; }
+    .solidaire-percent {
+      font-family: 'Playfair Display', serif;
+      font-size: 7rem; font-weight: 700; color: var(--gold); line-height: 1;
+    }
+    .solidaire-percent-sub {
+      font-size: 1rem; color: var(--text-muted); margin-top: .4rem;
+      line-height: 1.5; max-width: 220px; margin-left: auto; margin-right: auto;
+    }
+    .solidaire-tags {
+      display: flex; gap: .8rem; margin-top: 1.8rem; flex-wrap: wrap; justify-content: center;
+    }
+    .solidaire-tag {
+      text-align: center; padding: .8rem 1rem;
+      background: var(--deep-ocean); color: #fff;
+      border-radius: 14px; font-size: .8rem; font-weight: 600; line-height: 1.4;
+    }
+    .solidaire-tag span { display: block; font-size: 1.4rem; margin-bottom: .3rem; }
+    .solidaire-causes { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+    .solidaire-cause {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: #fff; border-radius: 16px; padding: 1.4rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+    .solidaire-cause-icon {
+      width: 48px; height: 48px; flex-shrink: 0; border-radius: 14px;
+      background: linear-gradient(135deg, var(--gold), var(--coral));
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .solidaire-cause-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700; margin-bottom: .3rem; color: var(--deep-ocean);
+    }
+    .solidaire-cause-desc { font-size: .87rem; color: var(--text-muted); line-height: 1.65; }
+    .solidaire-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1rem; color: var(--deep-ocean);
+      line-height: 1.8; padding: 1.4rem 1.8rem;
+      background: rgba(201,168,76,.1);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 16px 16px 0; margin-top: 1.5rem;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1180px) {
       .nav-links { display: none; }
@@ -608,8 +743,11 @@
       .features-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
       .cta-cards { grid-template-columns: 1fr; max-width: 420px; }
-      .lieux-grid { grid-template-columns: 1fr; }
-      .conseils-grid { grid-template-columns: 1fr; }
+      .checklist-grid { grid-template-columns: 1fr; }
+      .dest-grid { grid-template-columns: 1fr; }
+      .solidaire-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .solidaire-left { text-align: center; }
+
     }
     @media (max-width: 600px) {
       .exp-grid { grid-template-columns: 1fr; }
@@ -637,12 +775,15 @@
   <span class="mobile-close" onclick="closeMenu()">✕</span>
   <a href="#experiences" onclick="closeMenu()">Expériences</a>
   <a href="#programme" onclick="closeMenu()">Programme</a>
+  <a href="#excursions" onclick="closeMenu()">Destinations</a>
   <a href="#incontournables" onclick="closeMenu()">À Voir</a>
   <a href="#pourquoi" onclick="closeMenu()">Pourquoi moi</a>
   <a href="#about" onclick="closeMenu()">À Propos</a>
   <a href="#tarifs" onclick="closeMenu()">Tarifs</a>
+  <a href="#checklist" onclick="closeMenu()">Checklist</a>
   <a href="#conseils" onclick="closeMenu()">Conseils</a>
   <a href="#temoignages" onclick="closeMenu()">Témoignages</a>
+  <a href="#solidaire" onclick="closeMenu()">Solidarité ❤️</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
@@ -945,6 +1086,173 @@
   <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
 </svg>
 
+<!-- DESTINATIONS / EXCURSIONS -->
+<section class="section" id="excursions" style="background:var(--cream)">
+  <div class="section-inner">
+    <span class="section-label">🗺️ Nos destinations</span>
+    <h2 class="section-title">Les villes où je vous emmène <em>en excursion</em></h2>
+    <div class="divider-line"></div>
+    <div class="dest-grid">
+
+      <!-- HURGHADA -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">⭐ Base de séjour</span>
+          <div class="dest-name">🌊 Hurghada</div>
+          <div class="dest-tagline">La ville dynamique de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>La Marina et ses bateaux</li>
+            <li>Giftun Island (Orange Bay, Paradise)</li>
+            <li>Le Grand Aquarium d'Hurghada</li>
+            <li>Le vieux quartier – El Dahar</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🤿 Snorkeling</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🏄 Beach club</span>
+            <span class="dest-act-tag">🛍️ Shopping</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Parfait pour les amateurs d'activités, l'ambiance et les grands hôtels !</div>
+      </div>
+
+      <!-- SAFAGA -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~1h au sud</span>
+          <div class="dest-name">⚓ Safaga</div>
+          <div class="dest-tagline">Le port authentique de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Les plages de sable doré</li>
+            <li>Les sorties plongée sur les épaves</li>
+            <li>Les bains naturels &amp; sources chaudes</li>
+            <li>L'île de Tobia et les dauphins</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🤿 Plongée</span>
+            <span class="dest-act-tag">🌡️ Bains thermaux</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🚤 Bateau</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Moins touristique qu'Hurghada — idéal pour se ressourcer au calme.</div>
+      </div>
+
+      <!-- EL QUSEIR -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~2h30 au sud</span>
+          <div class="dest-name">🏰 El Quseir</div>
+          <div class="dest-tagline">Le joyau caché de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Le fort ottoman &amp; la vieille ville</li>
+            <li>Le port de pêche traditionnel</li>
+            <li>Les couchers de soleil magiques</li>
+            <li>Snorkeling dans des eaux cristallines</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🏛️ Histoire</span>
+            <span class="dest-act-tag">🐪 Quad désert</span>
+            <span class="dest-act-tag">🧑‍🤝‍🧑 Bédouins</span>
+            <span class="dest-act-tag">🎣 Pêche</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Plus authentique, plus calme, et tellement dépaysant !</div>
+      </div>
+
+      <!-- PORT GHALIB -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~3h30 au sud</span>
+          <div class="dest-name">⛵ Port Ghalib</div>
+          <div class="dest-tagline">La marina élégante de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>La marina internationale</li>
+            <li>Marsa Mubarak (tortues &amp; dugongs)</li>
+            <li>Les plages et lagons turquoise</li>
+            <li>La promenade et ses boutiques</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🐢 Tortues</span>
+            <span class="dest-act-tag">🤿 Plongée</span>
+            <span class="dest-act-tag">⛵ Bateau</span>
+            <span class="dest-act-tag">🛍️ Shopping</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Idéal pour la détente, la mer cristalline et les expériences marines uniques.</div>
+      </div>
+
+      <!-- MARSA ALAM -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~4h30 au sud</span>
+          <div class="dest-name">🌿 Marsa Alam</div>
+          <div class="dest-tagline">Le paradis préservé de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Abu Dabbab (tortues &amp; dugongs)</li>
+            <li>El Qulan Mangrove Bay</li>
+            <li>Les récifs coralliens préservés</li>
+            <li>Wadi El Gemal National Park</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🐢 Tortues</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🌱 Nature</span>
+            <span class="dest-act-tag">🏕️ Évasion</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Pour les amoureux de nature, de plages vierges et de tranquillité.</div>
+      </div>
+
+      <!-- LOUXOR -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~4h30 (Nil)</span>
+          <div class="dest-name">🏛️ Louxor</div>
+          <div class="dest-tagline">Le plus grand musée à ciel ouvert du monde</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Temple de Karnak &amp; Temple de Louxor</li>
+            <li>La Vallée des Rois</li>
+            <li>Les Colosses de Memnon</li>
+            <li>Balade en felouque sur le Nil</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🎈 Montgolfière</span>
+            <span class="dest-act-tag">🏺 Temples</span>
+            <span class="dest-act-tag">⛵ Felouque</span>
+            <span class="dest-act-tag">🛒 Souk</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Combine Louxor en 1 jour ou 1 nuit pour une expérience encore plus magique.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
 <!-- POURQUOI -->
 <section class="section" id="pourquoi">
   <div class="section-inner">
@@ -1090,6 +1398,100 @@
 
 <!-- WAVE -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#F5EDD8">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+<!-- CHECKLIST -->
+<section class="section" id="checklist">
+  <div class="section-inner">
+    <span class="section-label">🧳 Préparez votre valise</span>
+    <h2 class="section-title">Ma checklist <em>voyage</em> complète</h2>
+    <div class="divider-line"></div>
+    <div class="checklist-grid">
+
+      <!-- Documents -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">📄</div>
+        <h3 class="check-cat-title">Documents importants</h3>
+        <ul class="check-list">
+          <li>Passeport valide (au moins 6 mois après la date de retour)</li>
+          <li>Visa (ou argent pour le faire à l'arrivée)</li>
+          <li>Billets d'avion (papier ou téléphone)</li>
+          <li>Assurance voyage</li>
+          <li>Carte bancaire + un peu de liquide</li>
+        </ul>
+        <div class="check-tip">👉 Conseil : fais des photos de tous tes documents avant de partir</div>
+      </div>
+
+      <!-- Vêtements -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">👗</div>
+        <h3 class="check-cat-title">Vêtements adaptés</h3>
+        <ul class="check-list">
+          <li>Tenues légères (robes, shorts, t-shirts)</li>
+          <li>Maillots de bain 👙 (au moins 2)</li>
+          <li>Une tenue plus couvrante pour la ville</li>
+          <li>Une veste légère (soirées / vent)</li>
+          <li>Chaussures confortables + sandales</li>
+        </ul>
+      </div>
+
+      <!-- Protection & santé -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">☀️</div>
+        <h3 class="check-cat-title">Protection &amp; santé</h3>
+        <ul class="check-list">
+          <li>Crème solaire (indice élevé, SPF 50+)</li>
+          <li>Lunettes de soleil 🕶️</li>
+          <li>Casquette ou chapeau</li>
+          <li>Après-soleil</li>
+          <li>Petite trousse à pharmacie (doliprane, pansements, etc.)</li>
+        </ul>
+      </div>
+
+      <!-- Activités -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">🤿</div>
+        <h3 class="check-cat-title">Pour les activités</h3>
+        <ul class="check-list">
+          <li>Sac de plage</li>
+          <li>Serviette de plage</li>
+          <li>Pochette étanche pour téléphone</li>
+          <li>Masque de snorkeling (optionnel mais top !)</li>
+          <li>Appareil photo / GoPro 📸</li>
+        </ul>
+      </div>
+
+      <!-- Accessoires pratiques -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">🔌</div>
+        <h3 class="check-cat-title">Accessoires pratiques</h3>
+        <ul class="check-list">
+          <li>Adaptateur prise (si besoin)</li>
+          <li>Chargeur + batterie externe 🔋</li>
+          <li>Écouteurs</li>
+          <li>Sac cabine / petit sac à dos</li>
+        </ul>
+      </div>
+
+      <!-- Conseils en + -->
+      <div class="check-cat reveal" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(224,93,68,.08));border:1px solid rgba(201,168,76,.25)">
+        <div class="check-cat-icon">💡</div>
+        <h3 class="check-cat-title">Mes conseils en +</h3>
+        <ul class="check-list">
+          <li>Ne surcharge pas ta valise → ici, tout est accessible !</li>
+          <li>Prends des tenues dans lesquelles tu te sens bien et à l'aise</li>
+          <li>Laisse un peu de place pour les souvenirs 🛍️</li>
+        </ul>
+        <div class="check-tip">Bon voyage et crée des souvenirs inoubliables 🌟</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
   <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#0B2545"></path>
 </svg>
 
@@ -1216,6 +1618,66 @@
 
 <!-- WAVE -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#f5f0e8"></path>
+</svg>
+
+<!-- SOLIDAIRE -->
+<section class="section" id="solidaire">
+  <div class="section-inner">
+    <span class="section-label">❤️ Voyager avec le cœur</span>
+    <h2 class="section-title">Chaque voyage <em>fait la différence</em></h2>
+    <div class="divider-line"></div>
+    <div class="solidaire-wrap">
+
+      <div class="solidaire-left reveal">
+        <div class="solidaire-percent">5%</div>
+        <div class="solidaire-percent-sub">du bénéfice annuel<br>consacré à l'aide aux familles<br>les plus démunies en Égypte</div>
+        <div class="solidaire-tags">
+          <div class="solidaire-tag"><span>🌍</span>Voyager<br>autrement</div>
+          <div class="solidaire-tag"><span>🤲</span>Soutenir<br>les familles</div>
+          <div class="solidaire-tag"><span>🎓</span>Investir dans<br>leur avenir</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <p style="font-size:.97rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.2rem">
+          Voyager autrement, c'est aussi donner du sens à chaque aventure. Depuis le début de ce projet, j'ai toujours voulu que <strong>La Petite Hurghadienne</strong> soit bien plus qu'un simple accompagnement de voyage.
+        </p>
+        <p style="font-size:.97rem;color:var(--text-muted);line-height:1.9;margin-bottom:1.5rem">
+          C'est pourquoi j'ai pris une décision qui me tient profondément à cœur : <strong style="color:var(--deep-ocean)">5 % du bénéfice annuel</strong> seront consacrés à l'aide aux familles les plus démunies vivant en Égypte.
+        </p>
+
+        <div class="solidaire-causes">
+          <div class="solidaire-cause">
+            <div class="solidaire-cause-icon">🥖</div>
+            <div>
+              <div class="solidaire-cause-title">L'aide à la nutrition</div>
+              <div class="solidaire-cause-desc">Distribution de denrées alimentaires essentielles pour soutenir les familles dans le besoin — parce que chaque repas compte.</div>
+            </div>
+          </div>
+          <div class="solidaire-cause">
+            <div class="solidaire-cause-icon">🎒</div>
+            <div>
+              <div class="solidaire-cause-title">Le soutien à l'éducation</div>
+              <div class="solidaire-cause-desc">Fournitures scolaires pour les enfants afin de les accompagner vers un avenir meilleur et de meilleures opportunités.</div>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="solidaire-quote">
+          « En choisissant de voyager avec moi, vous participez vous aussi à cette belle chaîne de solidarité. Je souhaite que chaque voyage ait un impact positif — non seulement pour les voyageurs qui découvrent l'Égypte, mais aussi pour les personnes qui y vivent. »
+          <br><br>🇪🇬 <strong>La Petite Hurghadienne</strong> — Voyager avec le cœur, partager avec le cœur.
+        </blockquote>
+
+        <p style="text-align:center;margin-top:1.5rem;font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--gold)">Merci pour votre confiance et votre générosité ❤️</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f5f0e8">
   <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
 </svg>
 
