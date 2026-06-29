@@ -50,15 +50,16 @@
       color: #fff;
       text-decoration: none;
       letter-spacing: .02em;
+      white-space: nowrap; flex-shrink: 0;
     }
     .nav-logo span { color: var(--gold-light); }
     .nav-links {
-      display: flex; gap: 1.8rem; list-style: none;
+      display: flex; gap: 1.4rem; list-style: none; flex-wrap: nowrap;
     }
     .nav-links a {
       color: rgba(255,255,255,.85); text-decoration: none;
-      font-size: .85rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
-      transition: color .25s;
+      font-size: .82rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase;
+      transition: color .25s; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--gold-light); }
     .nav-cta {
@@ -359,6 +360,9 @@
       display: flex; align-items: center; justify-content: center; font-size: 8rem;
       box-shadow: 20px 20px 0 var(--gold);
     }
+    .about-img {
+      width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px;
+    }
     .about-badge {
       position: absolute; bottom: -1.5rem; right: -1.5rem;
       background: var(--deep-ocean); color: #fff;
@@ -515,7 +519,77 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ─── LIEUX INCONTOURNABLES ─── */
+    #incontournables { background: var(--cream); }
+    .lieux-intro {
+      font-size: .97rem; color: var(--text-muted); line-height: 1.85;
+      max-width: 700px;
+    }
+    .lieux-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.6rem; margin-top: 2.5rem; }
+    .lieux-card {
+      background: #fff; border-radius: 20px; padding: 2rem 1.8rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .lieux-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.13); }
+    .lieux-icon { font-size: 2.4rem; margin-bottom: .8rem; }
+    .lieux-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700; margin-bottom: .3rem;
+    }
+    .lieux-sub { font-size: .8rem; color: var(--gold); margin-bottom: 1.2rem; font-weight: 600; }
+    .lieux-list { list-style: none; }
+    .lieux-list li {
+      font-size: .87rem; color: var(--text-muted); line-height: 1.6;
+      margin-bottom: .8rem; padding-left: 1.1rem; position: relative;
+    }
+    .lieux-list li::before { content: '◆'; color: var(--coral); font-size: .6rem; position: absolute; left: 0; top: .35rem; }
+    .lieux-list strong { color: var(--charcoal); }
+    .lieux-tip {
+      text-align: center; margin: 2.5rem auto 0; font-size: .9rem;
+      color: var(--text-muted); max-width: 650px; line-height: 1.7;
+    }
+
+    /* ─── CONSEILS VOYAGE ─── */
+    #conseils { background: var(--deep-ocean); color: #fff; }
+    #conseils .section-title { color: #fff; }
+    #conseils .section-label { color: var(--gold-light); }
+    .conseils-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .conseil-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px; padding: 1.8rem; transition: background .3s;
+    }
+    .conseil-card:hover { background: rgba(255,255,255,.1); }
+    .conseil-card.highlight {
+      background: linear-gradient(135deg, rgba(201,168,76,.18), rgba(224,93,68,.18));
+      border-color: var(--gold);
+    }
+    .conseil-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .conseil-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700; margin-bottom: .6rem;
+    }
+    .conseil-desc { font-size: .87rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+    .conseil-list { list-style: none; }
+    .conseil-list li {
+      font-size: .87rem; color: rgba(255,255,255,.7); line-height: 1.6;
+      margin-bottom: .5rem; padding-left: 1.1rem; position: relative;
+    }
+    .conseil-list li::before { content: '→'; color: var(--gold-light); position: absolute; left: 0; }
+    .conseil-note { font-size: .85rem; color: var(--gold-light); margin-top: .8rem; font-weight: 500; }
+    .conseil-signature {
+      text-align: center; max-width: 680px; margin: 3rem auto 0;
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.15rem; line-height: 1.8; color: var(--gold-light);
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.15);
+    }
+
     /* ─── RESPONSIVE ─── */
+    @media (max-width: 1180px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
     @media (max-width: 900px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
@@ -533,6 +607,8 @@
       .features-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
       .cta-cards { grid-template-columns: 1fr; max-width: 420px; }
+      .lieux-grid { grid-template-columns: 1fr; }
+      .conseils-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .exp-grid { grid-template-columns: 1fr; }
@@ -560,9 +636,11 @@
   <span class="mobile-close" onclick="closeMenu()">✕</span>
   <a href="#experiences" onclick="closeMenu()">Expériences</a>
   <a href="#programme" onclick="closeMenu()">Programme</a>
+  <a href="#incontournables" onclick="closeMenu()">À Voir</a>
   <a href="#pourquoi" onclick="closeMenu()">Pourquoi moi</a>
   <a href="#about" onclick="closeMenu()">À Propos</a>
   <a href="#tarifs" onclick="closeMenu()">Tarifs</a>
+  <a href="#conseils" onclick="closeMenu()">Conseils</a>
   <a href="#temoignages" onclick="closeMenu()">Témoignages</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
@@ -573,9 +651,11 @@
   <ul class="nav-links">
     <li><a href="#experiences">Expériences</a></li>
     <li><a href="#programme">Programme</a></li>
+    <li><a href="#incontournables">À Voir</a></li>
     <li><a href="#pourquoi">Pourquoi moi</a></li>
     <li><a href="#about">À Propos</a></li>
     <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#conseils">Conseils</a></li>
     <li><a href="#temoignages">Témoignages</a></li>
     <li><a href="#contact" class="nav-cta">Réserver</a></li>
   </ul>
@@ -807,6 +887,60 @@
 
 <!-- WAVE -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#F5EDD8">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+<!-- INCONTOURNABLES -->
+<section class="section" id="incontournables">
+  <div class="section-inner">
+    <span class="section-label">🗺️ À ne pas manquer</span>
+    <h2 class="section-title">Les lieux <em>incontournables</em></h2>
+    <div class="divider-line"></div>
+    <p class="lieux-intro">Entre la mer Rouge et la vallée du Nil, chaque ville cache ses trésors : souks animés, temples millénaires et mosquées somptueuses. Voici un aperçu de ce que je vous fais découvrir pendant le séjour.</p>
+    <div class="lieux-grid">
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🛍️</div>
+        <h3 class="lieux-title">Shopping &amp; Souks</h3>
+        <p class="lieux-sub">Souvenirs, artisanat &amp; bonnes affaires</p>
+        <ul class="lieux-list">
+          <li><strong>Hurghada</strong> — City Center, Senzo Mall et le souk d'El Dahar pour épices, bijoux et souvenirs.</li>
+          <li><strong>El Quseir</strong> — artisanat bédouin, huiles naturelles et bijoux faits main.</li>
+          <li><strong>Safaga</strong> — épices, herbes et produits typiques à prix doux.</li>
+          <li><strong>Port Ghalib</strong> — marina chic, marché artisanal et parfumeries.</li>
+          <li><strong>Marsa Alam</strong> — souk local, huiles essentielles et souvenirs de voyage.</li>
+        </ul>
+      </div>
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🏛️</div>
+        <h3 class="lieux-title">Louxor &amp; ses Temples</h3>
+        <p class="lieux-sub">L'ancienne Thèbes, sur les deux rives du Nil</p>
+        <ul class="lieux-list">
+          <li><strong>Temple de Karnak</strong> — le plus grand complexe religieux jamais construit.</li>
+          <li><strong>Temple de Louxor</strong> — édifié en l'honneur du dieu Amon-Rê.</li>
+          <li><strong>Vallée des Rois</strong> — lieu de repos de Toutankhamon et Ramsès II.</li>
+          <li><strong>Temple d'Hatchepsout</strong> — creusé à flanc de falaise sur la rive ouest.</li>
+          <li><strong>Colosses de Memnon</strong> — deux statues monumentales, sublimes au coucher du soleil.</li>
+        </ul>
+      </div>
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🕌</div>
+        <h3 class="lieux-title">Les Plus Belles Mosquées</h3>
+        <p class="lieux-sub">Architecture &amp; spiritualité</p>
+        <ul class="lieux-list">
+          <li><strong>Mosquée Al-Mina</strong> (Hurghada) — la plus grande de la ville, majestueuse et illuminée.</li>
+          <li><strong>Mosquée Al-Bahr</strong> (Safaga) — moderne, symbole de sérénité en bord de mer.</li>
+          <li><strong>Mosquée Al-Faran</strong> (El Quseir) — tradition et authenticité.</li>
+          <li><strong>Mosquée Al-Salam</strong> (Port Ghalib) — élégante, au cœur de la marina.</li>
+          <li><strong>Mosquée Abou El-Haggag</strong> (Louxor) — l'une des plus anciennes, chargée d'histoire.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lieux-tip">💡 <strong>Bon plan :</strong> compare les prix, négocie toujours avec le sourire et privilégie l'artisanat local pour ramener des souvenirs authentiques et inoubliables.</p>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
   <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
 </svg>
 
@@ -874,7 +1008,7 @@
     <div class="about-wrap">
       <div class="about-img-wrap reveal">
         <div class="about-img-box">
-          <span>👩🏻‍🦰</span>
+          <img src="images/equipe-sea-and-sand.webp" alt="L'équipe Sea &amp; Sand - La Petite Hurghadienne" class="about-img">
         </div>
         <div class="about-badge">
           <div class="about-badge-num">🌴</div>
@@ -955,6 +1089,72 @@
 
 <!-- WAVE -->
 <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#F5EDD8">
+  <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
+<!-- CONSEILS -->
+<section class="section" id="conseils">
+  <div class="section-inner">
+    <span class="section-label">🧳 Avant de partir</span>
+    <h2 class="section-title">Mes conseils pour un <em style="color:var(--gold-light)">voyage idéal</em></h2>
+    <div class="divider-line"></div>
+    <div class="conseils-grid">
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">🌞</div>
+        <h3 class="conseil-title">Soleil &amp; Climat</h3>
+        <p class="conseil-desc">Le soleil ici est très fort, même quand il y a du vent. Pense à bien te protéger et surtout à t'hydrater régulièrement.</p>
+      </div>
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">💧</div>
+        <h3 class="conseil-title">Eau &amp; Alimentation</h3>
+        <ul class="conseil-list">
+          <li>Ne bois pas l'eau du robinet</li>
+          <li>Privilégie l'eau en bouteille</li>
+          <li>Évite les glaçons dans les endroits non sûrs</li>
+        </ul>
+        <p class="conseil-note">👉 Ton confort passe avant tout</p>
+      </div>
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">💸</div>
+        <h3 class="conseil-title">Argent &amp; Paiements</h3>
+        <ul class="conseil-list">
+          <li>Aie toujours un peu de liquide sur toi</li>
+          <li>Les petits pourboires sont très appréciés</li>
+          <li>La négociation fait partie de la culture 😉</li>
+        </ul>
+      </div>
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">🤍</div>
+        <h3 class="conseil-title">Culture &amp; Respect</h3>
+        <ul class="conseil-list">
+          <li>Adapte ta tenue en ville (un peu plus couvrante)</li>
+          <li>Respecte les coutumes locales</li>
+          <li>Un sourire ouvre toutes les portes</li>
+        </ul>
+      </div>
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">📱</div>
+        <h3 class="conseil-title">Sécurité &amp; Confort</h3>
+        <ul class="conseil-list">
+          <li>Télécharge Google Maps hors ligne</li>
+          <li>Garde tes objets de valeur en sécurité</li>
+          <li>Ici, tu peux te sentir serein(e), mais reste vigilant(e) comme partout</li>
+        </ul>
+      </div>
+      <div class="conseil-card highlight reveal">
+        <div class="conseil-icon">💫</div>
+        <h3 class="conseil-title">Le Plus Important</h3>
+        <p class="conseil-desc">👉 Lâche prise.<br>👉 Profite de chaque instant.<br>👉 Fais-moi confiance, je suis là pour toi du début à la fin.</p>
+      </div>
+    </div>
+    <div class="conseil-signature reveal">
+      <p>« Ce voyage, ce n'est pas juste des vacances… c'est une expérience, une parenthèse, un moment pour toi. Et je suis là pour le rendre inoubliable. »</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#0B2545">
   <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
 </svg>
 
