@@ -1,12 +1,12 @@
 // script.js
 
-// ─── NAV SCROLL ───
+// Nav scroll
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// ─── MOBILE MENU ───
+// Mobile menu
 function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
 function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
@@ -60,41 +60,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ─── AVIS (COMMENTS & STARS WITH IMAGE VIA GAS) ───
+// ─── AVIS (COMMENTS & STARS) ───
 let selectedStar = 0;
-let selectedImageBase64 = null;   // الصورة كـ Base64 لإرسالها إلى Apps Script
-let imagePreviewUrl = null;
 
-// ⚠️ استبدل هذا الرابط برابط Google Apps Script الجديد الخاص بك
-const API_URL = 'https://script.google.com/macros/s/AKfycbzDO59SC2R-wT7raqynnnf87aU1phqhQUWAFRQXxnZNXssDRHpQjhGc4g8-sU5qQgj4/exec';
-
-// ─── FUNCTIONS FOR IMAGE ───
-function updateImagePreview(input) {
-  const file = input.files[0];
-  if (!file) return;
-  
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    selectedImageBase64 = e.target.result; // حفظ Base64
-    imagePreviewUrl = e.target.result;
-    document.getElementById('imageFileName').textContent = file.name;
-    const previewDiv = document.getElementById('imagePreview');
-    const img = document.getElementById('previewImg');
-    img.src = imagePreviewUrl;
-    previewDiv.style.display = 'inline-block';
-    previewDiv.classList.add('visible');
-  };
-  reader.readAsDataURL(file);
-}
-
-function removeImage() {
-  selectedImageBase64 = null;
-  imagePreviewUrl = null;
-  document.getElementById('avisImage').value = '';
-  document.getElementById('imageFileName').textContent = 'Aucune image sélectionnée';
-  document.getElementById('imagePreview').style.display = 'none';
-  document.getElementById('imagePreview').classList.remove('visible');
-}
+// ⚠️ ضع رابط Google Apps Script الجديد هنا
+const API_URL = 'https://script.google.com/macros/s/AKfycbxPDJzxzu8x1gj0DQnqebL9_hY_os3eVk29OG7EaSaJH6o9PKbJMjmpn2LPQOWvub_I/exec';
 
 // ─── LOAD AVIS ───
 async function loadAvis() {
@@ -125,7 +95,6 @@ async function loadAvis() {
           <strong style="font-size:1.1rem;">${escapeHTML(a.name)}</strong>
           <div style="color:var(--gold);font-size:1.2rem;">${'★'.repeat(a.stars)}${'☆'.repeat(5 - a.stars)}</div>
         </div>
-        ${a.image ? `<img src="${escapeHTML(a.image)}" alt="Photo" style="max-width:100%;max-height:200px;border-radius:12px;margin:.5rem 0;object-fit:cover;border:1px solid #eee;">` : ''}
         <p style="color:var(--text-muted);line-height:1.6;font-size:.95rem;">${escapeHTML(a.text)}</p>
         <small style="color:var(--text-muted);opacity:.6;font-size:.75rem;">${escapeHTML(a.date)}</small>
       </div>
@@ -137,7 +106,7 @@ async function loadAvis() {
   }
 }
 
-// ─── SUBMIT AVIS (via Google Apps Script) ───
+// ─── SUBMIT AVIS ───
 async function submitAvis() {
   const name = document.getElementById('avisName').value.trim();
   const text = document.getElementById('avisText').value.trim();
@@ -159,11 +128,6 @@ async function submitAvis() {
     formData.append('text', text);
     formData.append('stars', selectedStar);
     formData.append('date', new Date().toLocaleDateString('fr-FR'));
-    
-    // إرسال الصورة كـ Base64 إلى Google Apps Script (الخادم سيرفعها إلى Imgur)
-    if (selectedImageBase64) {
-      formData.append('imageBase64', selectedImageBase64);
-    }
 
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -174,7 +138,6 @@ async function submitAvis() {
     const result = await response.json();
     
     if (result.success) {
-      // ✅ إعادة تعيين النموذج
       document.getElementById('avisName').value = '';
       document.getElementById('avisText').value = '';
       selectedStar = 0;
@@ -182,15 +145,13 @@ async function submitAvis() {
         s.textContent = '☆';
         s.classList.remove('active', 'gold');
       });
-      removeImage();
       
-      // ✅ عرض رسالة الشكر
       const thankDiv = document.getElementById('thankYouMessage');
       thankDiv.style.display = 'block';
       thankDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(() => { thankDiv.style.display = 'none'; }, 6000);
       
-      loadAvis(); // إعادة تحميل القائمة
+      loadAvis();
     } else {
       alert('❌ Erreur: ' + (result.error || 'Problème lors de l\'envoi'));
     }
@@ -207,7 +168,6 @@ async function submitAvis() {
 function initStars() {
   const stars = document.querySelectorAll('.star');
   stars.forEach(star => {
-    // Click
     star.addEventListener('click', function() {
       selectedStar = parseInt(this.dataset.value);
       stars.forEach((s, idx) => {
@@ -222,7 +182,6 @@ function initStars() {
       });
     });
     
-    // Hover
     star.addEventListener('mouseenter', function() {
       const val = parseInt(this.dataset.value);
       stars.forEach((s, idx) => {
@@ -240,7 +199,7 @@ function initStars() {
   });
 }
 
-// ─── ESCAPE HTML (sécurité) ───
+// ─── ESCAPE HTML ───
 function escapeHTML(str) {
   if (!str) return '';
   return str.replace(/[&<>"]/g, function(tag) {
@@ -255,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
   loadAvis();
 });
 
-// ─── PROFESSIONAL LANGUAGE DROPDOWN ───
+// ─── LANGUAGE DROPDOWN ───
 function toggleLangDropdown() {
   document.getElementById('langDropdown').classList.toggle('open');
   document.querySelector('.lang-toggle').classList.toggle('active');
@@ -287,7 +246,6 @@ switchLanguage = function(lang) {
   document.querySelector('.lang-toggle').classList.remove('active');
 };
 
-// تهيئة اللغة عند التحميل
 document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('lang') || 'fr';
   if (typeof applyTranslations === 'function') applyTranslations(saved);
