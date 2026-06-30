@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✏️ MODIFIER : Titre qui apparaît dans l'onglet du navigateur -->
+  <title>La Petite Hurghadienne – Découvrez Hurghada Autrement</title>
+
+  <!-- Polices Google (ne pas modifier) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Fichier CSS (styles visuels) — ne pas modifier -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================================
+     MENU MOBILE
+     ✏️ Modifier les noms des liens si tu changes les sections
+     ================================================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="closeMenu()">✕</span>
+  <a href="#experiences"    onclick="closeMenu()">Expériences</a>
+  <a href="#programme"      onclick="closeMenu()">Programme</a>
+  <a href="#excursions"     onclick="closeMenu()">Destinations</a>
+  <a href="#incontournables" onclick="closeMenu()">À Voir</a>
+  <a href="#pourquoi"       onclick="closeMenu()">Pourquoi moi</a>
+  <a href="#about"          onclick="closeMenu()">À Propos</a>
+  <a href="#tarifs"         onclick="closeMenu()">Tarifs</a>
+  <a href="#checklist"      onclick="closeMenu()">Checklist</a>
+  <a href="#conseils"       onclick="closeMenu()">Conseils</a>
+  <a href="#temoignages"    onclick="closeMenu()">Témoignages</a>
+  <a href="#solidaire"      onclick="closeMenu()">Solidarité ❤️</a>
+  <a href="#contact"        onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ================================================================
+     NAVIGATION (barre en haut)
+     ✏️ Modifier les noms des liens si tu changes les sections
+     ================================================================ -->
+<nav id="mainNav">
+  <!-- ✏️ MODIFIER : Nom du logo en haut à gauche -->
+  <a class="nav-logo" href="#hero">La Petite <span>Hurghadienne</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#experiences">Expériences</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#incontournables">À Voir</a></li>
+    <li><a href="#pourquoi">Pourquoi moi</a></li>
+    <li><a href="#about">À Propos</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#conseils">Conseils</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <!-- ✏️ MODIFIER : Bouton de réservation (lien + texte) -->
+    <li><a href="#contact" class="nav-cta">Réserver</a></li>
+  </ul>
+
+  <div class="hamburger" onclick="openMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+     🖼️  SECTION 1 : HERO (Grande image d'accueil)
+     ✏️ Modifier le texte principal, le sous-titre et les boutons.
+        Pour changer la photo de fond, modifier style.css ligne ~50
+     ================================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+
+    <!-- ✏️ MODIFIER : Petit texte au-dessus du titre -->
+    <span class="hero-eyebrow">🇫🇷 Accompagnatrice francophone 🇪🇬</span>
+
+    <!-- ✏️ MODIFIER : Grand titre principal -->
+    <h1 class="hero-title">Découvrez Hurghada<br><em>Autrement</em></h1>
+
+    <!-- ✏️ MODIFIER : Texte de description -->
+    <p class="hero-sub">Loin du tourisme classique, vivez une aventure authentique sur les rives de la Mer Rouge — organisée, sécurisée et inoubliable. Vous n'avez rien à gérer, je m'occupe de tout.</p>
+
+    <div class="hero-btns">
+      <!-- ✏️ MODIFIER : Bouton principal (href = où ça amène, texte entre > et </a>) -->
+      <a href="#contact"   class="btn-primary">Réserver mon aventure</a>
+      <a href="#programme" class="btn-ghost">Voir le programme</a>
+    </div>
+
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     📊 SECTION 2 : STATISTIQUES / CHIFFRES CLÉS
+     ✏️ Modifier les 4 chiffres et leurs descriptions
+     ================================================================ -->
+<div class="highlights">
+  <div class="highlights-inner">
+
+    <!-- ✏️ Chiffre 1 -->
+    <div class="highlight-card">
+      <div class="highlight-icon">🌊</div>
+      <div class="highlight-val">7 jours</div>
+      <div class="highlight-label">d'aventure complète</div>
+    </div>
+
+    <!-- ✏️ Chiffre 2 -->
+    <div class="highlight-card">
+      <div class="highlight-icon">🇫🇷</div>
+      <div class="highlight-val">100%</div>
+      <div class="highlight-label">Accompagnement francophone</div>
+    </div>
+
+    <!-- ✏️ Chiffre 3 -->
+    <div class="highlight-card">
+      <div class="highlight-icon">📸</div>
+      <div class="highlight-val">∞</div>
+      <div class="highlight-label">Photos souvenirs incluses</div>
+    </div>
+
+    <!-- ✏️ Chiffre 4 -->
+    <div class="highlight-card">
+      <div class="highlight-icon">💛</div>
+      <div class="highlight-val">0</div>
+      <div class="highlight-label">Stress pour vous</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#0B2545">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#F5EDD8"></path>
+</svg>
+
+
+<!-- ================================================================
+     ✨ SECTION 3 : EXPÉRIENCES
+     ✏️ Modifier chaque carte d'expérience.
+        Pour AJOUTER une expérience : copier-coller un bloc <div class="exp-card">...</div>
+        Pour SUPPRIMER : effacer un bloc <div class="exp-card">...</div>
+     ================================================================ -->
+<section class="section" id="experiences">
+  <div class="section-inner">
+    <!-- ✏️ Titre de la section -->
+    <span class="section-label">✨ Ce que vous vivrez</span>
+    <h2 class="section-title">Une expérience <em>complète</em> &amp; authentique</h2>
+    <div class="divider-line"></div>
+
+    <div class="exp-grid">
+
+      <!-- ✏️ Carte Expérience 1 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#e0f4fc,#b3e5f5)">🌊</div>
+        <div class="exp-body">
+          <span class="exp-badge">Mer Rouge</span>
+          <h3 class="exp-title">Snorkeling &amp; Plongée</h3>
+          <p class="exp-desc">Explorez les récifs coralliens aux couleurs éclatantes dans les eaux cristallines de la Mer Rouge. Une expérience sous-marine inoubliable.</p>
+        </div>
+      </div>
+
+      <!-- ✏️ Carte Expérience 2 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#fdf3dc,#f5dfa0)">🏜️</div>
+        <div class="exp-body">
+          <span class="exp-badge">Désert</span>
+          <h3 class="exp-title">Safari en Quad</h3>
+          <p class="exp-desc">Traversez le désert égyptien en quad, découvrez un village bédouin et sirotez un thé traditionnel au coucher du soleil.</p>
+        </div>
+      </div>
+
+      <!-- ✏️ Carte Expérience 3 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#fde8e4,#f5b8b0)">⛵</div>
+        <div class="exp-body">
+          <span class="exp-badge">Excursion</span>
+          <h3 class="exp-title">Croisière &amp; Îles</h3>
+          <p class="exp-desc">Partez en bateau vers des îles paradisiaques. Déjeuner à bord, baignade et détente dans un cadre de rêve.</p>
+        </div>
+      </div>
+
+      <!-- ✏️ Carte Expérience 4 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#e8f0fe,#b8cdfb)">🏛️</div>
+        <div class="exp-body">
+          <span class="exp-badge">Culture</span>
+          <h3 class="exp-title">Louxor &amp; Temples</h3>
+          <p class="exp-desc">Visites guidées des temples millénaires, balade en felouque sur le Nil et shopping au souk local pour ramener l'Égypte chez vous.</p>
+        </div>
+      </div>
+
+      <!-- ✏️ Carte Expérience 5 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">🐴</div>
+        <div class="exp-body">
+          <span class="exp-badge">Nature</span>
+          <h3 class="exp-title">Horse Excursion</h3>
+          <p class="exp-desc">Balades à cheval dans le désert ou en bord de mer. Des spots incroyables pour des photos et des souvenirs gravés à jamais.</p>
+        </div>
+      </div>
+
+      <!-- ✏️ Carte Expérience 6 -->
+      <div class="exp-card reveal">
+        <div class="exp-emoji-header" style="background:linear-gradient(135deg,#fce4ec,#f48fb1)">🏙️</div>
+        <div class="exp-body">
+          <span class="exp-badge">Découverte</span>
+          <h3 class="exp-title">Hurghada Authentique</h3>
+          <p class="exp-desc">Marina, marchés locaux, mosquée Al-Mina, musées — immersion totale dans la vraie vie hurghadiote, loin des circuits classiques.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#F5EDD8"></path>
+</svg>
+
+
+<!-- ================================================================
+     🗺️ SECTION 4 : PROGRAMME (TIMELINE 7 JOURS)
+     ✏️ Modifier chaque jour.
+        Pour AJOUTER un jour : copier-coller un bloc <div class="day">...</div>
+        Pour SUPPRIMER un jour : effacer un bloc <div class="day">...</div>
+     ================================================================ -->
+<section class="section" id="programme">
+  <div class="section-inner">
+    <!-- ✏️ Titre de la section -->
+    <span class="section-label">🗺️ Le déroulé</span>
+    <h2 class="section-title">Programme <em>type</em> 7 jours</h2>
+    <div class="divider-line"></div>
+
+    <div class="timeline">
+
+      <!-- ✏️ Jour 1 -->
+      <div class="day reveal">
+        <div class="day-dot">✈️</div>
+        <div class="day-content">
+          <div class="day-number">Jour 1 — Samedi</div>
+          <h3 class="day-title">Départ &amp; Arrivée</h3>
+          <ul class="day-list">
+            <li>Rendez-vous à l'aéroport en France (optionnel)</li>
+            <li>Prise en charge dès l'arrivée à Hurghada</li>
+            <li>Accueil et installation à l'hôtel ou Airbnb</li>
+            <li>Première balade et repas pour se familiariser avec l'équipe</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 2 -->
+      <div class="day reveal">
+        <div class="day-dot">🌊</div>
+        <div class="day-content">
+          <div class="day-number">Jour 2 — Dimanche</div>
+          <h3 class="day-title">Snorkeling en Mer Rouge</h3>
+          <ul class="day-list">
+            <li>Excursion en bateau au lever du soleil</li>
+            <li>Découverte des récifs coralliens</li>
+            <li>Snorkeling dans une eau turquoise</li>
+            <li>Déjeuner à bord &amp; retour à l'hébergement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 3 -->
+      <div class="day reveal">
+        <div class="day-dot">🏜️</div>
+        <div class="day-content">
+          <div class="day-number">Jour 3 — Lundi</div>
+          <h3 class="day-title">Safari dans le Désert</h3>
+          <ul class="day-list">
+            <li>Excursion en quad dans le désert</li>
+            <li>Découverte d'un village bédouin</li>
+            <li>Thé traditionnel au coin du feu</li>
+            <li>Coucher de soleil inoubliable dans les dunes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 4 -->
+      <div class="day reveal">
+        <div class="day-dot">🌴</div>
+        <div class="day-content">
+          <div class="day-number">Jour 4 — Mardi</div>
+          <h3 class="day-title">Découverte de Hurghada</h3>
+          <ul class="day-list">
+            <li>Visite du centre-ville &amp; de la marina</li>
+            <li>Marchés locaux et shopping souvenirs</li>
+            <li>Musées et mosquée Al-Mina</li>
+            <li>Dîner dans un restaurant authentique</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 5 -->
+      <div class="day reveal">
+        <div class="day-dot">🐴</div>
+        <div class="day-content">
+          <div class="day-number">Jour 5 — Mercredi</div>
+          <h3 class="day-title">Horse Excursion</h3>
+          <ul class="day-list">
+            <li>Balade à cheval dans le désert</li>
+            <li>Promenade possible en bord de mer</li>
+            <li>Spots photos incroyables</li>
+            <li>Chevaux sélectionnés &amp; accompagnement sur place</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 6 -->
+      <div class="day reveal">
+        <div class="day-dot">🏰</div>
+        <div class="day-content">
+          <div class="day-number">Jour 6 — Jeudi</div>
+          <h3 class="day-title">El Quseir</h3>
+          <ul class="day-list">
+            <li>Ville historique à 2h30 d'Hurghada</li>
+            <li>Balade dans la vieille ville &amp; ses ruelles</li>
+            <li>Le fort Ottoman &amp; le port de pêche</li>
+            <li>Coucher de soleil sur la mer</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ✏️ Jour 7 -->
+      <div class="day reveal">
+        <div class="day-dot">🏛️</div>
+        <div class="day-content">
+          <div class="day-number">Jour 7 — Vendredi</div>
+          <h3 class="day-title">Louxor &amp; Retour</h3>
+          <ul class="day-list">
+            <li>Visites guidées francophones des temples</li>
+            <li>Balade en felouque sur le Nil</li>
+            <li>Shopping au souk local</li>
+            <li>Dernières photos souvenirs &amp; retour</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ✏️ Encadré en bas du programme -->
+    <div style="text-align:center;margin-top:3rem;padding:2rem;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,.06)" class="reveal">
+      <div style="font-size:2rem;margin-bottom:.8rem">📸</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem">Book Photo Souvenir</h3>
+      <p style="color:#5A6070;max-width:500px;margin:0 auto;line-height:1.7">À la fin du séjour, vous repartez avec un book photos complet de votre voyage — un souvenir unique de votre expérience en Égypte.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#F5EDD8">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+
+<!-- ================================================================
+     🗺️ SECTION 5 : LIEUX INCONTOURNABLES
+     ✏️ Modifier les 3 cartes (Shopping, Temples, Mosquées).
+        Pour AJOUTER une carte : copier-coller un <div class="lieux-card">
+     ================================================================ -->
+<section class="section" id="incontournables">
+  <div class="section-inner">
+    <span class="section-label">🗺️ À ne pas manquer</span>
+    <h2 class="section-title">Les lieux <em>incontournables</em></h2>
+    <div class="divider-line"></div>
+    <!-- ✏️ Texte d'introduction -->
+    <p class="lieux-intro">Entre la mer Rouge et la vallée du Nil, chaque ville cache ses trésors : souks animés, temples millénaires et mosquées somptueuses. Voici un aperçu de ce que je vous fais découvrir pendant le séjour.</p>
+
+    <div class="lieux-grid">
+
+      <!-- ✏️ Carte 1 : Shopping -->
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🛍️</div>
+        <h3 class="lieux-title">Shopping &amp; Souks</h3>
+        <p class="lieux-sub">Souvenirs, artisanat &amp; bonnes affaires</p>
+        <ul class="lieux-list">
+          <li><strong>Hurghada</strong> — City Center, Senzo Mall et le souk d'El Dahar pour épices, bijoux et souvenirs.</li>
+          <li><strong>El Quseir</strong> — artisanat bédouin, huiles naturelles et bijoux faits main.</li>
+          <li><strong>Safaga</strong> — épices, herbes et produits typiques à prix doux.</li>
+          <li><strong>Port Ghalib</strong> — marina chic, marché artisanal et parfumeries.</li>
+          <li><strong>Marsa Alam</strong> — souk local, huiles essentielles et souvenirs de voyage.</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Carte 2 : Temples -->
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🏛️</div>
+        <h3 class="lieux-title">Louxor &amp; ses Temples</h3>
+        <p class="lieux-sub">L'ancienne Thèbes, sur les deux rives du Nil</p>
+        <ul class="lieux-list">
+          <li><strong>Temple de Karnak</strong> — le plus grand complexe religieux jamais construit.</li>
+          <li><strong>Temple de Louxor</strong> — édifié en l'honneur du dieu Amon-Rê.</li>
+          <li><strong>Vallée des Rois</strong> — lieu de repos de Toutankhamon et Ramsès II.</li>
+          <li><strong>Temple d'Hatchepsout</strong> — creusé à flanc de falaise sur la rive ouest.</li>
+          <li><strong>Colosses de Memnon</strong> — deux statues monumentales, sublimes au coucher du soleil.</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Carte 3 : Mosquées -->
+      <div class="lieux-card reveal">
+        <div class="lieux-icon">🕌</div>
+        <h3 class="lieux-title">Les Plus Belles Mosquées</h3>
+        <p class="lieux-sub">Architecture &amp; spiritualité</p>
+        <ul class="lieux-list">
+          <li><strong>Mosquée Al-Mina</strong> (Hurghada) — la plus grande de la ville, majestueuse et illuminée.</li>
+          <li><strong>Mosquée Al-Bahr</strong> (Safaga) — moderne, symbole de sérénité en bord de mer.</li>
+          <li><strong>Mosquée Al-Faran</strong> (El Quseir) — tradition et authenticité.</li>
+          <li><strong>Mosquée Al-Salam</strong> (Port Ghalib) — élégante, au cœur de la marina.</li>
+          <li><strong>Mosquée Abou El-Haggag</strong> (Louxor) — l'une des plus anciennes, chargée d'histoire.</li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- ✏️ Conseil en bas de la section -->
+    <p class="lieux-tip">💡 <strong>Bon plan :</strong> compare les prix, négocie toujours avec le sourire et privilégie l'artisanat local pour ramener des souvenirs authentiques et inoubliables.</p>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
+
+<!-- ================================================================
+     🗺️ SECTION 6 : DESTINATIONS / EXCURSIONS
+     ✏️ Modifier chaque carte de destination.
+        Pour AJOUTER une ville : copier-coller un bloc <div class="dest-card">
+     ================================================================ -->
+<section class="section" id="excursions" style="background:#FAF7F0">
+  <div class="section-inner">
+    <span class="section-label">🗺️ Nos destinations</span>
+    <h2 class="section-title">Les villes où je vous emmène <em>en excursion</em></h2>
+    <div class="divider-line"></div>
+
+    <div class="dest-grid">
+
+      <!-- ✏️ Destination 1 : Hurghada -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">⭐ Base de séjour</span>
+          <div class="dest-name">🌊 Hurghada</div>
+          <div class="dest-tagline">La ville dynamique de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>La Marina et ses bateaux</li>
+            <li>Giftun Island (Orange Bay, Paradise)</li>
+            <li>Le Grand Aquarium d'Hurghada</li>
+            <li>Le vieux quartier – El Dahar</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🤿 Snorkeling</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🏄 Beach club</span>
+            <span class="dest-act-tag">🛍️ Shopping</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Parfait pour les amateurs d'activités, l'ambiance et les grands hôtels !</div>
+      </div>
+
+      <!-- ✏️ Destination 2 : Safaga -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~1h au sud</span>
+          <div class="dest-name">⚓ Safaga</div>
+          <div class="dest-tagline">Le port authentique de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Les plages de sable doré</li>
+            <li>Les sorties plongée sur les épaves</li>
+            <li>Les bains naturels &amp; sources chaudes</li>
+            <li>L'île de Tobia et les dauphins</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🤿 Plongée</span>
+            <span class="dest-act-tag">🌡️ Bains thermaux</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🚤 Bateau</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Moins touristique qu'Hurghada — idéal pour se ressourcer au calme.</div>
+      </div>
+
+      <!-- ✏️ Destination 3 : El Quseir -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~2h30 au sud</span>
+          <div class="dest-name">🏰 El Quseir</div>
+          <div class="dest-tagline">Le joyau caché de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Le fort ottoman &amp; la vieille ville</li>
+            <li>Le port de pêche traditionnel</li>
+            <li>Les couchers de soleil magiques</li>
+            <li>Snorkeling dans des eaux cristallines</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🏛️ Histoire</span>
+            <span class="dest-act-tag">🐪 Quad désert</span>
+            <span class="dest-act-tag">🧑‍🤝‍🧑 Bédouins</span>
+            <span class="dest-act-tag">🎣 Pêche</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Plus authentique, plus calme, et tellement dépaysant !</div>
+      </div>
+
+      <!-- ✏️ Destination 4 : Port Ghalib -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~3h30 au sud</span>
+          <div class="dest-name">⛵ Port Ghalib</div>
+          <div class="dest-tagline">La marina élégante de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>La marina internationale</li>
+            <li>Marsa Mubarak (tortues &amp; dugongs)</li>
+            <li>Les plages et lagons turquoise</li>
+            <li>La promenade et ses boutiques</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🐢 Tortues</span>
+            <span class="dest-act-tag">🤿 Plongée</span>
+            <span class="dest-act-tag">⛵ Bateau</span>
+            <span class="dest-act-tag">🛍️ Shopping</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Idéal pour la détente, la mer cristalline et les expériences marines uniques.</div>
+      </div>
+
+      <!-- ✏️ Destination 5 : Marsa Alam -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~4h30 au sud</span>
+          <div class="dest-name">🌿 Marsa Alam</div>
+          <div class="dest-tagline">Le paradis préservé de la mer Rouge</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Abu Dabbab (tortues &amp; dugongs)</li>
+            <li>El Qulan Mangrove Bay</li>
+            <li>Les récifs coralliens préservés</li>
+            <li>Wadi El Gemal National Park</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🐢 Tortues</span>
+            <span class="dest-act-tag">🐬 Dauphins</span>
+            <span class="dest-act-tag">🌱 Nature</span>
+            <span class="dest-act-tag">🏕️ Évasion</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Pour les amoureux de nature, de plages vierges et de tranquillité.</div>
+      </div>
+
+      <!-- ✏️ Destination 6 : Louxor -->
+      <div class="dest-card reveal">
+        <div class="dest-header">
+          <span class="dest-distance">🚗 ~4h30 (Nil)</span>
+          <div class="dest-name">🏛️ Louxor</div>
+          <div class="dest-tagline">Le plus grand musée à ciel ouvert du monde</div>
+        </div>
+        <div class="dest-body">
+          <p class="dest-section-title">À ne pas manquer</p>
+          <ul class="dest-items">
+            <li>Temple de Karnak &amp; Temple de Louxor</li>
+            <li>La Vallée des Rois</li>
+            <li>Les Colosses de Memnon</li>
+            <li>Balade en felouque sur le Nil</li>
+          </ul>
+          <div class="dest-activities">
+            <span class="dest-act-tag">🎈 Montgolfière</span>
+            <span class="dest-act-tag">🏺 Temples</span>
+            <span class="dest-act-tag">⛵ Felouque</span>
+            <span class="dest-act-tag">🛒 Souk</span>
+          </div>
+        </div>
+        <div class="dest-footer">💡 <strong>Bon plan :</strong> Combine Louxor en 1 jour ou 1 nuit pour une expérience encore plus magique.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
+
+<!-- ================================================================
+     💛 SECTION 7 : POURQUOI ME CHOISIR
+     ✏️ Modifier les 6 arguments.
+        Pour AJOUTER : copier-coller un bloc <div class="feature">
+     ================================================================ -->
+<section class="section" id="pourquoi">
+  <div class="section-inner">
+    <span class="section-label">💛 Pourquoi me choisir</span>
+    <h2 class="section-title" style="color:#fff">Voyager avec moi, <em style="color:#E8C97A">c'est différent</em></h2>
+    <div class="divider-line"></div>
+
+    <div class="features-grid">
+
+      <!-- ✏️ Argument 1 -->
+      <div class="feature reveal">
+        <div class="feature-icon">🇫🇷</div>
+        <div>
+          <div class="feature-title">Accompagnement francophone</div>
+          <div class="feature-desc">Je vous accompagne depuis la France et tout au long de votre séjour, en français, 7j/7 et 24h/24.</div>
+        </div>
+      </div>
+
+      <!-- ✏️ Argument 2 -->
+      <div class="feature reveal">
+        <div class="feature-icon">📋</div>
+        <div>
+          <div class="feature-title">Organisation complète</div>
+          <div class="feature-desc">Hébergement, excursions, transport, repas, photos — tout est planifié pour vous. Vous n'avez qu'à profiter.</div>
+        </div>
+      </div>
+
+      <!-- ✏️ Argument 3 -->
+      <div class="feature reveal">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <div class="feature-title">Sécurité &amp; Sérénité</div>
+          <div class="feature-desc">Voyagez l'esprit tranquille. Je connais chaque recoin d'Hurghada et vous évite toutes les mauvaises surprises.</div>
+        </div>
+      </div>
+
+      <!-- ✏️ Argument 4 -->
+      <div class="feature reveal">
+        <div class="feature-icon">🎁</div>
+        <div>
+          <div class="feature-title">Pack de bienvenue offert</div>
+          <div class="feature-desc">À votre arrivée, recevez un pack cadeau surprise pour démarrer votre aventure du bon pied.</div>
+        </div>
+      </div>
+
+      <!-- ✏️ Argument 5 -->
+      <div class="feature reveal">
+        <div class="feature-icon">📸</div>
+        <div>
+          <div class="feature-title">Photos souvenirs incluses</div>
+          <div class="feature-desc">Je capture les plus beaux moments de votre aventure. Vous repartez avec un book photos professionnel complet.</div>
+        </div>
+      </div>
+
+      <!-- ✏️ Argument 6 -->
+      <div class="feature reveal">
+        <div class="feature-icon">💛</div>
+        <div>
+          <div class="feature-title">Expérience authentique</div>
+          <div class="feature-desc">Loin des circuits touristiques, je vous fais découvrir "mon" Hurghada — celui qui se vit, se ressent et ne s'oublie jamais.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#0B2545">
+  <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+
+<!-- ================================================================
+     👩 SECTION 8 : À PROPOS
+     ✏️ Modifier les textes de présentation et les liens réseaux sociaux.
+        Pour changer la photo : remplace "equipe-sea-and-sand.webp"
+        par le nom de ton fichier image (doit être dans le même dossier)
+     ================================================================ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-wrap">
+
+      <!-- Photo -->
+      <div class="about-img-wrap reveal">
+        <div class="about-img-box">
+          <!-- ✏️ MODIFIER src="..." pour changer la photo -->
+          <img src="equipe-sea-and-sand.webp" alt="L'équipe Sea &amp; Sand - La Petite Hurghadienne" class="about-img">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">🌴</div>
+          <!-- ✏️ MODIFIER : texte sous l'emoji -->
+          <div class="about-badge-txt">Ma Seconde Maison</div>
+        </div>
+      </div>
+
+      <!-- Texte -->
+      <div class="about-text reveal">
+        <span class="section-label">👩🏻‍🦰 Mon histoire</span>
+        <h2 class="section-title">Mon lien avec <em>Hurghada</em></h2>
+        <div class="divider-line"></div>
+
+        <!-- ✏️ MODIFIER : Paragraphes de présentation -->
+        <p>Tout a commencé lors d'un voyage à Hurghada… Ce n'était pas un simple séjour. Dès les premiers instants, j'ai ressenti quelque chose de fort : une énergie, une chaleur humaine, une sensation d'être à ma place.</p>
+        <p>J'ai appris à connaître la ville autrement, loin des circuits touristiques. J'y ai créé des liens, découvert des endroits cachés, compris la culture et adopté un véritable mode de vie.</p>
+        <p>Hurghada est devenue bien plus qu'une destination : <strong>c'est une seconde maison.</strong> Aujourd'hui, à travers La Petite Hurghadienne, j'ai à cœur de partager cette connexion unique avec vous — vous faire découvrir "mon" Hurghada.</p>
+
+        <div class="about-contacts">
+          <!-- ✏️ MODIFIER : Liens réseaux sociaux -->
+          <a href="https://instagram.com/la_petite_hurghadienne" class="contact-chip">📱 Instagram</a>
+          <a href="https://api.whatsapp.com/send?phone=33601093689" class="contact-chip">💬 WhatsApp</a>
+          <a href="mailto:lapetitehurghadienne@gmail.com" class="contact-chip">✉️ Email</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#F5EDD8"></path>
+</svg>
+
+
+<!-- ================================================================
+     💰 SECTION 9 : TARIFS
+     ✏️ Modifier les 3 formules.
+        La carte du milieu a la classe "featured" (fond bleu = mise en avant)
+        Pour AJOUTER une formule : copier un bloc <div class="tarif-card">
+     ================================================================ -->
+<section class="section" id="tarifs">
+  <div class="section-inner">
+    <span class="section-label">💰 Investissement</span>
+    <h2 class="section-title">Des formules <em>adaptées</em></h2>
+    <div class="divider-line"></div>
+    <!-- ✏️ Texte d'introduction -->
+    <p class="tarifs-intro">Organiser un voyage peut vite devenir stressant — où aller, quoi faire, à qui faire confiance ? Ici, je vous propose quelque chose de différent. Chaque devis est personnalisé selon votre profil et vos envies. Contactez-moi pour obtenir votre tarif sur mesure.</p>
+
+    <div class="tarifs-grid">
+
+      <!-- ✏️ Formule 1 : Solo -->
+      <div class="tarif-card reveal">
+        <div class="tarif-icon">🧑</div>
+        <div class="tarif-name">Voyage Privé</div>
+        <div class="tarif-desc">Pour les solo-voyageurs en quête d'une aventure personnalisée et intime.</div>
+        <div class="tarif-includes">
+          <div class="tarif-item">Accompagnement toute la semaine</div>
+          <div class="tarif-item">Organisation complète du séjour</div>
+          <div class="tarif-item">Photos souvenirs incluses</div>
+          <div class="tarif-item">Pack de bienvenue offert</div>
+        </div>
+        <a href="#contact" class="tarif-cta">Demander un devis</a>
+      </div>
+
+      <!-- ✏️ Formule 2 : Famille (mise en avant) -->
+      <div class="tarif-card featured reveal">
+        <div class="tarif-badge">Populaire</div>
+        <div class="tarif-icon">👨‍👩‍👧‍👦</div>
+        <div class="tarif-name">Famille</div>
+        <div class="tarif-desc">Une aventure magique en famille, adaptée aux enfants comme aux adultes.</div>
+        <div class="tarif-includes">
+          <div class="tarif-item">Activités adaptées aux enfants</div>
+          <div class="tarif-item">Organisation complète du séjour</div>
+          <div class="tarif-item">Photos de famille incluses</div>
+          <div class="tarif-item">Pack de bienvenue offert</div>
+          <div class="tarif-item">Sécurité et sérénité garanties</div>
+        </div>
+        <a href="#contact" class="tarif-cta">Demander un devis</a>
+      </div>
+
+      <!-- ✏️ Formule 3 : Couple/Amis -->
+      <div class="tarif-card reveal">
+        <div class="tarif-icon">👫</div>
+        <div class="tarif-name">Couple / Amis</div>
+        <div class="tarif-desc">Un voyage romantique ou entre amis, sur mesure selon vos envies et votre budget.</div>
+        <div class="tarif-includes">
+          <div class="tarif-item">Programme personnalisé</div>
+          <div class="tarif-item">Organisation complète du séjour</div>
+          <div class="tarif-item">Photos souvenirs incluses</div>
+          <div class="tarif-item">Pack de bienvenue offert</div>
+        </div>
+        <a href="#contact" class="tarif-cta">Demander un devis</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#F5EDD8">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+
+<!-- ================================================================
+     🧳 SECTION 10 : CHECKLIST VALISE
+     ✏️ Modifier les catégories et éléments de la checklist.
+        Pour AJOUTER une catégorie : copier un bloc <div class="check-cat">
+        Pour AJOUTER un item : ajouter un <li> dans la <ul class="check-list">
+     ================================================================ -->
+<section class="section" id="checklist">
+  <div class="section-inner">
+    <span class="section-label">🧳 Préparez votre valise</span>
+    <h2 class="section-title">Ma checklist <em>voyage</em> complète</h2>
+    <div class="divider-line"></div>
+
+    <div class="checklist-grid">
+
+      <!-- ✏️ Catégorie 1 -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">📄</div>
+        <h3 class="check-cat-title">Documents importants</h3>
+        <ul class="check-list">
+          <li>Passeport valide (au moins 6 mois après la date de retour)</li>
+          <li>Visa (ou argent pour le faire à l'arrivée)</li>
+          <li>Billets d'avion (papier ou téléphone)</li>
+          <li>Assurance voyage</li>
+          <li>Carte bancaire + un peu de liquide</li>
+        </ul>
+        <div class="check-tip">👉 Conseil : fais des photos de tous tes documents avant de partir</div>
+      </div>
+
+      <!-- ✏️ Catégorie 2 -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">👗</div>
+        <h3 class="check-cat-title">Vêtements adaptés</h3>
+        <ul class="check-list">
+          <li>Tenues légères (robes, shorts, t-shirts)</li>
+          <li>Maillots de bain 👙 (au moins 2)</li>
+          <li>Une tenue plus couvrante pour la ville</li>
+          <li>Une veste légère (soirées / vent)</li>
+          <li>Chaussures confortables + sandales</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Catégorie 3 -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">☀️</div>
+        <h3 class="check-cat-title">Protection &amp; santé</h3>
+        <ul class="check-list">
+          <li>Crème solaire (indice élevé, SPF 50+)</li>
+          <li>Lunettes de soleil 🕶️</li>
+          <li>Casquette ou chapeau</li>
+          <li>Après-soleil</li>
+          <li>Petite trousse à pharmacie (doliprane, pansements, etc.)</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Catégorie 4 -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">🤿</div>
+        <h3 class="check-cat-title">Pour les activités</h3>
+        <ul class="check-list">
+          <li>Sac de plage</li>
+          <li>Serviette de plage</li>
+          <li>Pochette étanche pour téléphone</li>
+          <li>Masque de snorkeling (optionnel mais top !)</li>
+          <li>Appareil photo / GoPro 📸</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Catégorie 5 -->
+      <div class="check-cat reveal">
+        <div class="check-cat-icon">🔌</div>
+        <h3 class="check-cat-title">Accessoires pratiques</h3>
+        <ul class="check-list">
+          <li>Adaptateur prise (si besoin)</li>
+          <li>Chargeur + batterie externe 🔋</li>
+          <li>Écouteurs</li>
+          <li>Sac cabine / petit sac à dos</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Catégorie 6 (mise en avant) -->
+      <div class="check-cat reveal" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(224,93,68,.08));border:1px solid rgba(201,168,76,.25)">
+        <div class="check-cat-icon">💡</div>
+        <h3 class="check-cat-title">Mes conseils en +</h3>
+        <ul class="check-list">
+          <li>Ne surcharge pas ta valise → ici, tout est accessible !</li>
+          <li>Prends des tenues dans lesquelles tu te sens bien et à l'aise</li>
+          <li>Laisse un peu de place pour les souvenirs 🛍️</li>
+        </ul>
+        <div class="check-tip">Bon voyage et crée des souvenirs inoubliables 🌟</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
+
+<!-- ================================================================
+     🧳 SECTION 11 : CONSEILS VOYAGE
+     ✏️ Modifier les 6 cartes de conseils.
+        Pour AJOUTER un conseil : copier un bloc <div class="conseil-card">
+     ================================================================ -->
+<section class="section" id="conseils">
+  <div class="section-inner">
+    <span class="section-label">🧳 Avant de partir</span>
+    <h2 class="section-title">Mes conseils pour un <em style="color:#E8C97A">voyage idéal</em></h2>
+    <div class="divider-line"></div>
+
+    <div class="conseils-grid">
+
+      <!-- ✏️ Conseil 1 -->
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">🌞</div>
+        <h3 class="conseil-title">Soleil &amp; Climat</h3>
+        <p class="conseil-desc">Le soleil ici est très fort, même quand il y a du vent. Pense à bien te protéger et surtout à t'hydrater régulièrement.</p>
+      </div>
+
+      <!-- ✏️ Conseil 2 -->
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">💧</div>
+        <h3 class="conseil-title">Eau &amp; Alimentation</h3>
+        <ul class="conseil-list">
+          <li>Ne bois pas l'eau du robinet</li>
+          <li>Privilégie l'eau en bouteille</li>
+          <li>Évite les glaçons dans les endroits non sûrs</li>
+        </ul>
+        <p class="conseil-note">👉 Ton confort passe avant tout</p>
+      </div>
+
+      <!-- ✏️ Conseil 3 -->
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">💸</div>
+        <h3 class="conseil-title">Argent &amp; Paiements</h3>
+        <ul class="conseil-list">
+          <li>Aie toujours un peu de liquide sur toi</li>
+          <li>Les petits pourboires sont très appréciés</li>
+          <li>La négociation fait partie de la culture 😉</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Conseil 4 -->
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">🤍</div>
+        <h3 class="conseil-title">Culture &amp; Respect</h3>
+        <ul class="conseil-list">
+          <li>Adapte ta tenue en ville (un peu plus couvrante)</li>
+          <li>Respecte les coutumes locales</li>
+          <li>Un sourire ouvre toutes les portes</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Conseil 5 -->
+      <div class="conseil-card reveal">
+        <div class="conseil-icon">📱</div>
+        <h3 class="conseil-title">Sécurité &amp; Confort</h3>
+        <ul class="conseil-list">
+          <li>Télécharge Google Maps hors ligne</li>
+          <li>Garde tes objets de valeur en sécurité</li>
+          <li>Ici, tu peux te sentir serein(e), mais reste vigilant(e) comme partout</li>
+        </ul>
+      </div>
+
+      <!-- ✏️ Conseil 6 (mis en avant) -->
+      <div class="conseil-card highlight reveal">
+        <div class="conseil-icon">💫</div>
+        <h3 class="conseil-title">Le Plus Important</h3>
+        <p class="conseil-desc">👉 Lâche prise.<br>👉 Profite de chaque instant.<br>👉 Fais-moi confiance, je suis là pour toi du début à la fin.</p>
+      </div>
+
+    </div>
+
+    <!-- ✏️ Citation finale -->
+    <div class="conseil-signature reveal">
+      <p>« Ce voyage, ce n'est pas juste des vacances… c'est une expérience, une parenthèse, un moment pour toi. Et je suis là pour le rendre inoubliable. »</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#0B2545">
+  <path d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z" fill="#FAF7F0"></path>
+</svg>
+
+
+<!-- ================================================================
+     💬 SECTION 12 : TÉMOIGNAGES
+     ✏️ Modifier chaque avis client.
+        Pour AJOUTER un avis : copier un bloc <div class="testi-card">
+        Pour SUPPRIMER : effacer un bloc entier
+     ================================================================ -->
+<section class="section" id="temoignages">
+  <div class="section-inner">
+    <span class="section-label">💬 Ils ont voyagé avec moi</span>
+    <h2 class="section-title">Ils en <em>parlent</em> mieux que moi</h2>
+    <div class="divider-line"></div>
+
+    <div class="testi-grid">
+
+      <!-- ✏️ Avis 1 -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Merci encore pour m'avoir encouragé, t'es une vraie pépite 🥰 En tout cas je n'oublierais jamais ton dicton : "ne jamais dire jamais". Hurghada m'a complètement transformée !</p>
+        <div class="testi-author">
+          <!-- ✏️ Initiale (1 lettre) + nom + description -->
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Marie Noëlle</div>
+            <div class="testi-meta">Voyageuse solo • Hurghada 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✏️ Avis 2 -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Une semaine magique, organisée à la perfection. Je n'avais à me soucier de rien — tout était géré avec bienveillance. On a adoré chaque moment, des excursions aux repas en passant par les photos.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sophie &amp; Famille</div>
+            <div class="testi-meta">Voyage en famille • Hurghada 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✏️ Avis 3 -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Je pensais connaître Hurghada… j'avais tort ! Grâce à La Petite Hurghadienne, j'ai découvert une ville authentique, des endroits cachés et une culture incroyable. Indispensable !</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Alexia</div>
+            <div class="testi-meta">Groupe d'amies • Hurghada 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✏️ Avis 4 -->
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Le safari dans le désert et le snorkeling resteront gravés dans ma mémoire à jamais. Sans oublier le book photo souvenir — un cadeau inestimable. Merci infiniment pour cette expérience unique !</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Laurent &amp; Thomas</div>
+            <div class="testi-meta">Couple • Hurghada 2025</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#FAF7F0">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#f5f0e8"></path>
+</svg>
+
+
+<!-- ================================================================
+     ❤️ SECTION 13 : SOLIDARITÉ
+     ✏️ Modifier le texte et les causes soutenues
+     ================================================================ -->
+<section class="section" id="solidaire">
+  <div class="section-inner">
+    <span class="section-label">❤️ Voyager avec le cœur</span>
+    <h2 class="section-title">Chaque voyage <em>fait la différence</em></h2>
+    <div class="divider-line"></div>
+
+    <div class="solidaire-wrap">
+
+      <!-- Côté gauche : grand chiffre + icônes -->
+      <div class="solidaire-left reveal">
+        <!-- ✏️ Modifier le pourcentage -->
+        <div class="solidaire-percent">5%</div>
+        <div class="solidaire-percent-sub">du bénéfice annuel<br>consacré à l'aide aux familles<br>les plus démunies en Égypte</div>
+        <div class="solidaire-tags">
+          <!-- ✏️ Modifier ces 3 tags -->
+          <div class="solidaire-tag"><span>🌍</span>Voyager<br>autrement</div>
+          <div class="solidaire-tag"><span>🤲</span>Soutenir<br>les familles</div>
+          <div class="solidaire-tag"><span>🎓</span>Investir dans<br>leur avenir</div>
+        </div>
+      </div>
+
+      <!-- Côté droit : texte -->
+      <div class="reveal">
+        <!-- ✏️ Modifier les textes de la section solidarité -->
+        <p style="font-size:.97rem;color:#5A6070;line-height:1.9;margin-bottom:1.2rem">
+          Voyager autrement, c'est aussi donner du sens à chaque aventure. Depuis le début de ce projet, j'ai toujours voulu que <strong>La Petite Hurghadienne</strong> soit bien plus qu'un simple accompagnement de voyage.
+        </p>
+        <p style="font-size:.97rem;color:#5A6070;line-height:1.9;margin-bottom:1.5rem">
+          C'est pourquoi j'ai pris une décision qui me tient profondément à cœur : <strong style="color:#0B2545">5 % du bénéfice annuel</strong> seront consacrés à l'aide aux familles les plus démunies vivant en Égypte.
+        </p>
+
+        <div class="solidaire-causes">
+
+          <!-- ✏️ Cause 1 -->
+          <div class="solidaire-cause">
+            <div class="solidaire-cause-icon">🥖</div>
+            <div>
+              <div class="solidaire-cause-title">L'aide à la nutrition</div>
+              <div class="solidaire-cause-desc">Distribution de denrées alimentaires essentielles pour soutenir les familles dans le besoin — parce que chaque repas compte.</div>
+            </div>
+          </div>
+
+          <!-- ✏️ Cause 2 -->
+          <div class="solidaire-cause">
+            <div class="solidaire-cause-icon">🎒</div>
+            <div>
+              <div class="solidaire-cause-title">Le soutien à l'éducation</div>
+              <div class="solidaire-cause-desc">Fournitures scolaires pour les enfants afin de les accompagner vers un avenir meilleur et de meilleures opportunités.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ✏️ Citation de clôture -->
+        <blockquote class="solidaire-quote">
+          « En choisissant de voyager avec moi, vous participez vous aussi à cette belle chaîne de solidarité. Je souhaite que chaque voyage ait un impact positif — non seulement pour les voyageurs qui découvrent l'Égypte, mais aussi pour les personnes qui y vivent. »
+          <br><br>🇪🇬 <strong>La Petite Hurghadienne</strong> — Voyager avec le cœur, partager avec le cœur.
+        </blockquote>
+
+        <p style="text-align:center;margin-top:1.5rem;font-family:'Dancing Script',cursive;font-size:1.2rem;color:#C9A84C">Merci pour votre confiance et votre générosité ❤️</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Séparateur vague -->
+<svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f5f0e8">
+  <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#0B2545"></path>
+</svg>
+
+
+<!-- ================================================================
+     📩 SECTION 14 : CONTACT
+     ✏️ Modifier les coordonnées de contact
+     ================================================================ -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <span class="section-label">📩 Prêt(e) à partir ?</span>
+    <h2 class="section-title">Réservez votre <em style="color:#E8C97A">aventure</em></h2>
+    <div class="divider-line"></div>
+    <!-- ✏️ Texte d'invitation -->
+    <p class="cta-desc">Vous souhaitez vivre un séjour inoubliable à Hurghada ? Contactez-moi directement via l'un de ces canaux — je vous réponds rapidement !</p>
+
+    <div class="cta-cards">
+
+      <!-- ✏️ Contact 1 : WhatsApp — modifier le numéro de téléphone -->
+      <div class="cta-card reveal">
+        <div class="cta-card-icon">💬</div>
+        <div class="cta-card-title">WhatsApp</div>
+        <div class="cta-card-info"><a href="https://api.whatsapp.com/send?phone=33601093689">+33 6 01 09 36 89</a></div>
+      </div>
+
+      <!-- ✏️ Contact 2 : Email — modifier l'adresse -->
+      <div class="cta-card reveal">
+        <div class="cta-card-icon">📧</div>
+        <div class="cta-card-title">Email</div>
+        <div class="cta-card-info"><a href="mailto:lapetitehurghadienne@gmail.com">lapetitehurghadienne<br>@gmail.com</a></div>
+      </div>
+
+      <!-- ✏️ Contact 3 : Réseaux sociaux — modifier le handle -->
+      <div class="cta-card reveal">
+        <div class="cta-card-icon">📱</div>
+        <div class="cta-card-title">Instagram / TikTok</div>
+        <div class="cta-card-info"><a href="https://instagram.com/la_petite_hurghadienne">@la_petite_hurghadienne</a></div>
+      </div>
+
+    </div>
+
+    <div class="hero-btns" style="justify-content:center">
+      <!-- ✏️ Boutons de contact -->
+      <a href="https://api.whatsapp.com/send?phone=33601093689" class="btn-primary">💬 Écrire sur WhatsApp</a>
+      <a href="mailto:lapetitehurghadienne@gmail.com" class="btn-ghost">✉️ Envoyer un email</a>
+    </div>
+
+    <!-- ✏️ Informations de localisation et disponibilité -->
+    <p class="cta-info">📍 Grasse, France &amp; Hurghada, Égypte &nbsp;|&nbsp; 🕐 Disponible tous les jours 7h–21h</p>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER (BAS DE PAGE)
+     ✏️ Modifier le texte et les liens
+     ================================================================ -->
+<footer>
+  <!-- ✏️ Nom en cursive -->
+  <p style="font-family:'Dancing Script',cursive;font-size:1.3rem;color:rgba(255,255,255,.6);margin-bottom:.6rem">La Petite Hurghadienne</p>
+  <!-- ✏️ Texte de copyright -->
+  <p>© 2026 La Petite Hurghadienne &amp; SEA AND SAND · <a href="mailto:lapetitehurghadienne@gmail.com">lapetitehurghadienne@gmail.com</a> · <a href="tel:+33601093689">+33 6 01 09 36 89</a></p>
+</footer>
+
+
+<!-- ================================================================
+     BOUTON WHATSAPP FLOTTANT (en bas à droite de l'écran)
+     ✏️ Modifier le lien avec ton numéro WhatsApp
+     ================================================================ -->
+<a class="float-wa" href="https://api.whatsapp.com/send?phone=33601093689" title="WhatsApp">💬</a>
+
+
+<!-- Fichier JavaScript (animations) — ne pas modifier -->
+<script src="script.js"></script>
+
+</body>
+</html>
