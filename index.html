@@ -15,7 +15,7 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" onclick="closeMenu()">✕</span>
+  <span class="mobile-close" onclick="closeMenu()" role="button" tabindex="0" aria-label="Fermer le menu">✕</span>
   <a href="#experiences" data-i18n="nav_experiences" onclick="closeMenu()">Expériences</a>
   <a href="#programme" data-i18n="nav_programme" onclick="closeMenu()">Programme</a>
   <a href="#excursions" data-i18n="nav_destinations" onclick="closeMenu()">Destinations</a>
@@ -37,7 +37,7 @@
   
   <!-- Language Dropdown (Professional) -->
   <div class="lang-dropdown-wrapper">
-    <button class="lang-toggle" onclick="toggleLangDropdown()">
+    <button class="lang-toggle" onclick="toggleLangDropdown()" aria-label="Choisir la langue" aria-haspopup="true">
       <span class="lang-icon">🌐</span>
       <span id="currentLangLabel">Français</span>
       <span class="lang-arrow">▾</span>
@@ -62,7 +62,7 @@
     <li><a href="#temoignages" data-i18n="nav_temoignages">Témoignages</a></li>
     <li><a href="#contact" class="nav-cta" data-i18n="nav_reserver">Réserver</a></li>
   </ul>
-  <div class="hamburger" onclick="openMenu()">
+  <div class="hamburger" onclick="openMenu()" role="button" tabindex="0" aria-label="Ouvrir le menu">
     <span></span><span></span><span></span>
   </div>
 </nav>

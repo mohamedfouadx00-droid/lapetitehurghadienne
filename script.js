@@ -10,34 +10,51 @@ window.addEventListener('scroll', () => {
 function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
 function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
+// Keyboard activation for custom role="button" controls (hamburger, mobile-close)
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const target = e.target.closest('[role="button"]');
+  if (!target) return;
+  e.preventDefault();
+  target.click();
+});
+
 // ─── LANGUAGE ───
 let currentLang = localStorage.getItem('lang') || 'fr';
-
-function switchLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  applyTranslations(lang);
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.style.opacity = btn.dataset.lang === lang ? '1' : '0.5';
-  });
-}
+const LANG_LABELS = { fr: 'Français', en: 'English', de: 'Deutsch', it: 'Italiano', pl: 'Polski' };
 
 function applyTranslations(lang) {
   const dict = translations[lang];
   if (!dict) return;
-  const titleEl = document.getElementById('pageTitle');
-  if (titleEl) titleEl.textContent = dict.nav_reserver || 'La Petite Hurghadienne';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) el.innerHTML = dict[key];
   });
 }
 
+function updateLangLabel(lang) {
+  const labelEl = document.getElementById('currentLangLabel');
+  if (labelEl) labelEl.textContent = LANG_LABELS[lang] || lang;
+}
+
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  applyTranslations(lang);
+  updateLangLabel(lang);
+  document.querySelectorAll('.lang-dropdown li').forEach(li => {
+    li.classList.toggle('active-lang', li.dataset.lang === lang);
+  });
+  document.getElementById('langDropdown').classList.remove('open');
+  document.querySelector('.lang-toggle').classList.remove('active');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('lang') || 'fr';
   applyTranslations(saved);
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.style.opacity = btn.dataset.lang === saved ? '1' : '0.5';
+  updateLangLabel(saved);
+  document.querySelectorAll('.lang-dropdown li').forEach(li => {
+    li.classList.toggle('active-lang', li.dataset.lang === saved);
   });
 });
 
@@ -226,32 +243,4 @@ document.addEventListener('click', function(event) {
     document.getElementById('langDropdown').classList.remove('open');
     document.querySelector('.lang-toggle').classList.remove('active');
   }
-});
-
-function updateLangLabel(lang) {
-  const labelMap = { fr: 'Français', en: 'English', de: 'Deutsch', it: 'Italiano', pl: 'Polski' };
-  const labelEl = document.getElementById('currentLangLabel');
-  if (labelEl) labelEl.textContent = labelMap[lang] || lang;
-}
-
-const originalSwitch = switchLanguage;
-switchLanguage = function(lang) {
-  originalSwitch(lang);
-  updateLangLabel(lang);
-  document.querySelectorAll('.lang-dropdown li').forEach(li => {
-    li.classList.remove('active-lang');
-    if (li.dataset.lang === lang) li.classList.add('active-lang');
-  });
-  document.getElementById('langDropdown').classList.remove('open');
-  document.querySelector('.lang-toggle').classList.remove('active');
-};
-
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('lang') || 'fr';
-  if (typeof applyTranslations === 'function') applyTranslations(saved);
-  updateLangLabel(saved);
-  document.querySelectorAll('.lang-dropdown li').forEach(li => {
-    li.classList.remove('active-lang');
-    if (li.dataset.lang === saved) li.classList.add('active-lang');
-  });
 });
