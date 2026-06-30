@@ -64,7 +64,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 let selectedStar = 0;
 let selectedImageFile = null;
 let imagePreviewUrl = null;
-const API_URL = 'https://script.google.com/macros/s/AKfycbytEyQUOO4Z6fjorxo-XkW-4FZOy09K7e_KOlHDUoXSEqxOyAo0w8K8OsCzXmkEAaxQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbz5OD6yBgmfV8a1Hn-IgeRPILReI2R76dOtbi__pwRX5kJYtNKzsKMLVwfQ2gv11UWi/exec';
 const IMGUR_CLIENT_ID = '546c25a59c58ad7'; // Client ID public d'Imgur (valide pour uploads anonymes)
 
 // ─── FUNCTIONS FOR IMAGE UPLOAD ───
