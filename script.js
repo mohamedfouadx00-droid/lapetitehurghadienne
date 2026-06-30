@@ -1,12 +1,12 @@
 // script.js
 
-// Nav scroll
+// ─── NAV SCROLL ───
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-// Mobile menu
+// ─── MOBILE MENU ───
 function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
 function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
@@ -60,63 +60,40 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ─── AVIS (COMMENTS & STARS WITH IMAGE) ───
+// ─── AVIS (COMMENTS & STARS WITH IMAGE VIA GAS) ───
 let selectedStar = 0;
-let selectedImageFile = null;
+let selectedImageBase64 = null;   // الصورة كـ Base64 لإرسالها إلى Apps Script
 let imagePreviewUrl = null;
-const API_URL = 'https://script.google.com/macros/s/AKfycbz5OD6yBgmfV8a1Hn-IgeRPILReI2R76dOtbi__pwRX5kJYtNKzsKMLVwfQ2gv11UWi/exec';
-const IMGUR_CLIENT_ID = '546c25a59c58ad7'; // Client ID public d'Imgur (valide pour uploads anonymes)
 
-// ─── FUNCTIONS FOR IMAGE UPLOAD ───
+// ⚠️ استبدل هذا الرابط برابط Google Apps Script الجديد الخاص بك
+const API_URL = 'https://script.google.com/macros/s/AKfycbzDO59SC2R-wT7raqynnnf87aU1phqhQUWAFRQXxnZNXssDRHpQjhGc4g8-sU5qQgj4/exec';
+
+// ─── FUNCTIONS FOR IMAGE ───
 function updateImagePreview(input) {
   const file = input.files[0];
   if (!file) return;
-  selectedImageFile = file;
-  document.getElementById('imageFileName').textContent = file.name;
   
   const reader = new FileReader();
   reader.onload = function(e) {
+    selectedImageBase64 = e.target.result; // حفظ Base64
     imagePreviewUrl = e.target.result;
+    document.getElementById('imageFileName').textContent = file.name;
     const previewDiv = document.getElementById('imagePreview');
     const img = document.getElementById('previewImg');
     img.src = imagePreviewUrl;
-    previewDiv.classList.add('visible');
     previewDiv.style.display = 'inline-block';
+    previewDiv.classList.add('visible');
   };
   reader.readAsDataURL(file);
 }
 
 function removeImage() {
-  selectedImageFile = null;
+  selectedImageBase64 = null;
   imagePreviewUrl = null;
   document.getElementById('avisImage').value = '';
   document.getElementById('imageFileName').textContent = 'Aucune image sélectionnée';
   document.getElementById('imagePreview').style.display = 'none';
   document.getElementById('imagePreview').classList.remove('visible');
-}
-
-async function uploadImageToImgur(file) {
-  const formData = new FormData();
-  formData.append('image', file);
-  
-  try {
-    const response = await fetch('https://api.imgur.com/3/image', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Client-ID ${IMGUR_CLIENT_ID}`
-      },
-      body: formData
-    });
-    const data = await response.json();
-    if (data.success) {
-      return data.data.link; // رابط الصورة
-    } else {
-      throw new Error('Erreur Imgur: ' + (data.data?.error || 'Inconnue'));
-    }
-  } catch (error) {
-    console.error('Erreur upload Imgur:', error);
-    throw error;
-  }
 }
 
 // ─── LOAD AVIS ───
@@ -160,7 +137,7 @@ async function loadAvis() {
   }
 }
 
-// ─── SUBMIT AVIS ───
+// ─── SUBMIT AVIS (via Google Apps Script) ───
 async function submitAvis() {
   const name = document.getElementById('avisName').value.trim();
   const text = document.getElementById('avisText').value.trim();
@@ -176,25 +153,17 @@ async function submitAvis() {
   btn.disabled = true;
 
   try {
-    let imageUrl = '';
-    if (selectedImageFile) {
-      try {
-        imageUrl = await uploadImageToImgur(selectedImageFile);
-      } catch (imgError) {
-        alert('⚠️ Erreur lors du téléchargement de l\'image. Veuillez réessayer ou retirer l\'image.');
-        btn.textContent = originalText;
-        btn.disabled = false;
-        return;
-      }
-    }
-
     const formData = new URLSearchParams();
     formData.append('action', 'post');
     formData.append('name', name);
     formData.append('text', text);
     formData.append('stars', selectedStar);
     formData.append('date', new Date().toLocaleDateString('fr-FR'));
-    if (imageUrl) formData.append('image', imageUrl);
+    
+    // إرسال الصورة كـ Base64 إلى Google Apps Script (الخادم سيرفعها إلى Imgur)
+    if (selectedImageBase64) {
+      formData.append('imageBase64', selectedImageBase64);
+    }
 
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -205,7 +174,7 @@ async function submitAvis() {
     const result = await response.json();
     
     if (result.success) {
-      // Réinitialiser le formulaire
+      // ✅ إعادة تعيين النموذج
       document.getElementById('avisName').value = '';
       document.getElementById('avisText').value = '';
       selectedStar = 0;
@@ -215,17 +184,13 @@ async function submitAvis() {
       });
       removeImage();
       
-      // Afficher le message de remerciement
+      // ✅ عرض رسالة الشكر
       const thankDiv = document.getElementById('thankYouMessage');
       thankDiv.style.display = 'block';
       thankDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => { thankDiv.style.display = 'none'; }, 6000);
       
-      // Cacher le message après 6 secondes
-      setTimeout(() => {
-        thankDiv.style.display = 'none';
-      }, 6000);
-      
-      loadAvis(); // Recharger la liste
+      loadAvis(); // إعادة تحميل القائمة
     } else {
       alert('❌ Erreur: ' + (result.error || 'Problème lors de l\'envoi'));
     }
@@ -238,10 +203,11 @@ async function submitAvis() {
   }
 }
 
-// ─── STARS MANAGEMENT ───
+// ─── GOLDEN STARS ───
 function initStars() {
   const stars = document.querySelectorAll('.star');
   stars.forEach(star => {
+    // Click
     star.addEventListener('click', function() {
       selectedStar = parseInt(this.dataset.value);
       stars.forEach((s, idx) => {
@@ -256,6 +222,7 @@ function initStars() {
       });
     });
     
+    // Hover
     star.addEventListener('mouseenter', function() {
       const val = parseInt(this.dataset.value);
       stars.forEach((s, idx) => {
@@ -273,7 +240,7 @@ function initStars() {
   });
 }
 
-// ─── ESCAPE HTML ───
+// ─── ESCAPE HTML (sécurité) ───
 function escapeHTML(str) {
   if (!str) return '';
   return str.replace(/[&<>"]/g, function(tag) {
@@ -320,6 +287,7 @@ switchLanguage = function(lang) {
   document.querySelector('.lang-toggle').classList.remove('active');
 };
 
+// تهيئة اللغة عند التحميل
 document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('lang') || 'fr';
   if (typeof applyTranslations === 'function') applyTranslations(saved);
