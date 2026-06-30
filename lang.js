@@ -340,6 +340,7 @@ const translations = {
     // Avis
     avis_label: "⭐ Donnez votre avis",
     avis_title: "Vos <em>commentaires</em> et étoiles",
+    avis_photo_label: "Ajouter une photo (optionnel)",
     avis_submit: "Envoyer mon avis",
     thank_title: "Merci pour votre avis !",
     thank_desc: "Votre commentaire a été publié avec succès.",
@@ -691,6 +692,7 @@ const translations = {
     // Avis
     avis_label: "⭐ Leave your review",
     avis_title: "Your <em>comments</em> and stars",
+    avis_photo_label: "Add a photo (optional)",
     avis_submit: "Submit my review",
     thank_title: "Thank you for your review!",
     thank_desc: "Your comment has been published successfully.",
@@ -1042,6 +1044,7 @@ const translations = {
     // Avis
     avis_label: "⭐ Hinterlassen Sie Ihre Bewertung",
     avis_title: "Ihre <em>Kommentare</em> und Sterne",
+    avis_photo_label: "Foto hinzufügen (optional)",
     avis_submit: "Bewertung absenden",
     thank_title: "Vielen Dank für Ihre Bewertung!",
     thank_desc: "Ihr Kommentar wurde erfolgreich veröffentlicht.",
@@ -1393,6 +1396,7 @@ const translations = {
     // Avis
     avis_label: "⭐ Lascia la tua recensione",
     avis_title: "I tuoi <em>commenti</em> e stelle",
+    avis_photo_label: "Aggiungi una foto (facoltativo)",
     avis_submit: "Invia la mia recensione",
     thank_title: "Grazie per la tua recensione!",
     thank_desc: "Il tuo commento è stato pubblicato con successo.",
@@ -1744,6 +1748,7 @@ const translations = {
     // Avis
     avis_label: "⭐ Zostaw opinię",
     avis_title: "Twoje <em>komentarze</em> i gwiazdki",
+    avis_photo_label: "Dodaj zdjęcie (opcjonalnie)",
     avis_submit: "Wyślij opinię",
     thank_title: "Dziękujemy za opinię!",
     thank_desc: "Twój komentarz został pomyślnie opublikowany.",

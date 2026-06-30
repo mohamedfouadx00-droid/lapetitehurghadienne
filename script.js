@@ -79,6 +79,63 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // ─── AVIS (COMMENTS & STARS) ───
 let selectedStar = 0;
+let avisPhotoBase64 = null;
+
+// Resize + re-encode an image file client-side before sending it as base64.
+// Keeps uploads fast/reliable and avoids hitting payload limits with full-size phone photos.
+function compressImage(file, maxDim = 1280, quality = 0.8) {
+  return new Promise((resolve, reject) => {
+    if (!file.type || !file.type.startsWith('image/')) {
+      reject(new Error('Le fichier choisi n\'est pas une image.'));
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxDim || height > maxDim) {
+          if (width >= height) {
+            height = Math.round(height * (maxDim / width));
+            width = maxDim;
+          } else {
+            width = Math.round(width * (maxDim / height));
+            height = maxDim;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = () => reject(new Error('Impossible de lire cette image.'));
+      img.src = e.target.result;
+    };
+    reader.onerror = () => reject(new Error('Lecture du fichier impossible.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function initAvisPhotoInput() {
+  const input = document.getElementById('avisPhoto');
+  const preview = document.getElementById('avisPhotoPreview');
+  if (!input || !preview) return;
+  input.addEventListener('change', async () => {
+    const file = input.files[0];
+    if (!file) { avisPhotoBase64 = null; preview.style.display = 'none'; return; }
+    try {
+      avisPhotoBase64 = await compressImage(file);
+      preview.src = avisPhotoBase64;
+      preview.style.display = 'block';
+    } catch (err) {
+      alert('⚠️ ' + err.message);
+      input.value = '';
+      avisPhotoBase64 = null;
+      preview.style.display = 'none';
+    }
+  });
+}
 
 // ⚠️ ضع رابط Google Apps Script الجديد هنا
 const API_URL = 'https://script.google.com/macros/s/AKfycbxPDJzxzu8x1gj0DQnqebL9_hY_os3eVk29OG7EaSaJH6o9PKbJMjmpn2LPQOWvub_I/exec';
@@ -112,6 +169,7 @@ async function loadAvis() {
           <strong style="font-size:1.1rem;">${escapeHTML(a.name)}</strong>
           <div style="color:var(--gold);font-size:1.2rem;">${'★'.repeat(a.stars)}${'☆'.repeat(5 - a.stars)}</div>
         </div>
+        ${a.photo ? `<img src="${escapeHTML(a.photo)}" alt="Photo ajoutée par ${escapeHTML(a.name)}" loading="lazy" style="width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:.8rem;">` : ''}
         <p style="color:var(--text-muted);line-height:1.6;font-size:.95rem;">${escapeHTML(a.text)}</p>
         <small style="color:var(--text-muted);opacity:.6;font-size:.75rem;">${escapeHTML(a.date)}</small>
       </div>
@@ -145,6 +203,7 @@ async function submitAvis() {
     formData.append('text', text);
     formData.append('stars', selectedStar);
     formData.append('date', new Date().toLocaleDateString('fr-FR'));
+    if (avisPhotoBase64) formData.append('photo', avisPhotoBase64);
 
     const response = await fetch(API_URL, {
       method: 'POST',
@@ -153,21 +212,29 @@ async function submitAvis() {
     });
     
     const result = await response.json();
-    
-    if (result.success) {
+
+    if (result.success || result.savedWithoutPhoto) {
       document.getElementById('avisName').value = '';
       document.getElementById('avisText').value = '';
+      document.getElementById('avisPhoto').value = '';
+      document.getElementById('avisPhotoPreview').style.display = 'none';
+      avisPhotoBase64 = null;
       selectedStar = 0;
       document.querySelectorAll('.star').forEach(s => {
         s.textContent = '☆';
         s.classList.remove('active', 'gold');
       });
-      
-      const thankDiv = document.getElementById('thankYouMessage');
-      thankDiv.style.display = 'block';
-      thankDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => { thankDiv.style.display = 'none'; }, 6000);
-      
+
+      if (result.savedWithoutPhoto) {
+        // Le commentaire est bien enregistré, mais la photo n'a pas pu être envoyée.
+        alert('✅ Votre avis a été publié, mais la photo n\'a pas pu être envoyée. Réessayez avec une photo plus légère si besoin.');
+      } else {
+        const thankDiv = document.getElementById('thankYouMessage');
+        thankDiv.style.display = 'block';
+        thankDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => { thankDiv.style.display = 'none'; }, 6000);
+      }
+
       loadAvis();
     } else {
       alert('❌ Erreur: ' + (result.error || 'Problème lors de l\'envoi'));
@@ -228,6 +295,7 @@ function escapeHTML(str) {
 // ─── INIT ───
 document.addEventListener('DOMContentLoaded', function() {
   initStars();
+  initAvisPhotoInput();
   loadAvis();
 });
 
