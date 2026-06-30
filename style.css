@@ -890,3 +890,32 @@ footer a { color: var(--gold-light); text-decoration: none; }
     padding: 0.4rem 0.8rem;
   }
 }
+/* ─── GOLDEN STARS ─── */
+.star {
+  transition: all 0.2s ease;
+  color: #ccc;
+  text-shadow: none;
+  user-select: none;
+}
+.star:hover {
+  transform: scale(1.3);
+  color: #f5c842;
+}
+.star.active {
+  color: #f5b342;
+  text-shadow: 0 0 20px rgba(245, 179, 66, 0.6), 0 0 40px rgba(245, 179, 66, 0.3);
+  transform: scale(1.1);
+}
+.star.gold {
+  color: #f5b342;
+  text-shadow: 0 0 15px rgba(245, 179, 66, 0.5), 0 0 30px rgba(245, 179, 66, 0.2);
+}
+
+/* ─── IMAGE PREVIEW ─── */
+#imagePreview {
+  display: none;
+  position: relative;
+}
+#imagePreview.visible {
+  display: inline-block;
+}
